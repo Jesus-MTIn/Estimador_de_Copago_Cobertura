@@ -45,6 +45,11 @@ a {
     animation: fade-up 0.45s ease both;
   }
 
+  .animate-float {
+    animation: robot-float 4.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+
   .float-slow {
     animation: float-slow 10s ease-in-out infinite;
   }
@@ -72,5 +77,15 @@ a {
   }
   50% {
     transform: translateY(14px);
+  }
+}
+
+@keyframes robot-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(-16px) rotate(1deg) scale(1.06);
   }
 }

@@ -134,17 +134,17 @@ export default function ChatBox() {
   };
 
   return (
-    <div className="rounded-3xl border border-white/60 bg-white/70 shadow-glow backdrop-blur-xl">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/5 px-6 py-4">
+    <div className="rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-6 py-4">
         <div className="space-y-1">
-          <p className="text-xs uppercase tracking-[0.3em] text-ink/40">
+          <p className="text-xs uppercase tracking-[0.3em] text-emerald-700">
             Consulta
           </p>
-          <h2 className="text-lg font-semibold text-ink">
+          <h2 className="text-lg font-semibold text-emerald-900">
             Estimacion en tiempo real
           </h2>
         </div>
-        <div className="rounded-full bg-ink px-4 py-2 text-xs uppercase tracking-[0.2em] text-white">
+        <div className="rounded-full bg-emerald-500 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white">
           Comparador de planes
         </div>
       </div>
@@ -186,23 +186,23 @@ export default function ChatBox() {
                     {planCards.map((plan) => {
                       const isSelected = selectedPlan === plan.key;
                       const cardClasses = isSelected
-                        ? "border-blue-500 bg-blue-50"
+                        ? "border-emerald-500 bg-emerald-50"
                         : "border-slate-200 bg-white";
 
                       return (
                         <div
                           key={plan.key}
                           onClick={() => selectPlanForMessage(index, plan.key)}
-                          className={`rounded-2xl shadow-sm border p-5 flex flex-col h-full cursor-pointer transition-all duration-200 hover:border-blue-400 hover:bg-blue-50/40 hover:shadow-md ${cardClasses}`}
+                          className={`rounded-3xl border p-5 shadow-sm flex h-full cursor-pointer flex-col transition-all duration-200 hover:border-emerald-400 hover:bg-emerald-50/40 hover:shadow-md ${cardClasses}`}
                         >
                           <p
                             className={`text-xs font-bold tracking-widest uppercase mb-4 border-b pb-2 text-center ${
-                              isSelected ? "text-blue-600" : "text-slate-500"
+                              isSelected ? "text-emerald-700" : "text-slate-500"
                             }`}
                           >
                             {plan.title}
                           </p>
-                          <span className="bg-blue-50 text-blue-600 text-[10px] font-bold px-2 py-1 rounded-full w-max mb-3">
+                          <span className="mb-3 w-max rounded-full bg-emerald-100 px-2 py-1 text-[10px] font-bold text-emerald-700">
                             {hospitalData.specialty ?? "N/A"}
                           </span>
                           <h3 className="text-lg font-bold text-slate-800 leading-tight">
@@ -217,7 +217,7 @@ export default function ChatBox() {
                             {formatCopay(plan.copay)}
                           </p>
                           {plan.key === "premium" ? (
-                            <p className="text-xs text-blue-600 font-semibold text-center mt-2">
+                            <p className="mt-2 text-center text-xs font-semibold text-amber-500">
                               Mejor Cobertura
                             </p>
                           ) : null}
@@ -233,7 +233,7 @@ export default function ChatBox() {
         <div ref={endRef} />
       </div>
 
-      <div className="border-t border-black/5 px-6 py-5">
+      <div className="border-t border-slate-100 px-6 py-5">
         <InputBar
           value={input}
           onChange={setInput}

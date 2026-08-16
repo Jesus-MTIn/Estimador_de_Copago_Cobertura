@@ -1,18 +1,22 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "env": {
-    "NEXT_PUBLIC_SUPABASE_URL": "@next_public_supabase_url",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@next_public_supabase_anon_key",
-    "GEMINI_API_KEY": "@gemini_api_key",
-    "SUPABASE_SERVICE_KEY": "@supabase_service_key"
+  "experimentalServices": {
+    "frontend": {
+      "entrypoint": "frontend",
+      "routePrefix": "/",
+      "framework": "nextjs"
+    },
+    "backend": {
+      "entrypoint": "backend",
+      "routePrefix": "/_/backend"
+    }
   },
-  "functions": {
-    "app/api/**/*.js": {
+  "buildCommand": "npm run build", 
+  "installCommand": "npm install",
+  "functions": { 
+    "backend/**/*.js": {
       "memory": 512,
       "maxDuration": 30
     }
   }
-}
+} 
